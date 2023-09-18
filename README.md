@@ -1,38 +1,5 @@
-# create-svelte
+# FlavourVault
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+FlavourVault is a recipe management software, which will provide anyone with a digital backup of their recipes. These "boxes" of recipes can be downloaded as a JSON file (or some other TBD format like RON or XML). Also planned are a printed export function to print out recipes.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+This is a webapp built in Svelte, built to a static webpage, which is then served via Firebase and uses its Realtime Database for managing user boxes.  
