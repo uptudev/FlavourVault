@@ -1,6 +1,7 @@
 <script lang='ts'>
     import Card from './Card.svelte';
     import './UserData.ts';
+    import { loggedIn } from '../firebase.ts';
 
     let testRecipe1: Recipe = {
         color: 0,
@@ -95,6 +96,7 @@
     }
 </style>
 
+{#if loggedIn}
 <div class='recipe-book'>
     <Card title={testRecipe1.title} ingredients={testRecipe1.ingredients} procedure={testRecipe1.procedure} colour={testRecipe1.color} />
     <Card title={testRecipe2.title} ingredients={testRecipe2.ingredients} procedure={testRecipe2.procedure} colour={testRecipe2.color} />
@@ -103,3 +105,6 @@
     <Card title={testRecipe5.title} ingredients={testRecipe5.ingredients} procedure={testRecipe5.procedure} colour={testRecipe5.color} />
     <Card title={testRecipe6.title} ingredients={testRecipe6.ingredients} procedure={testRecipe6.procedure} colour={testRecipe6.color} />
 </div>
+{:else}
+<p>Please log in to see your recipe books!</p>
+{/if}

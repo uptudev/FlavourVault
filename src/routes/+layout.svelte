@@ -95,10 +95,10 @@
 </style>
 
 <script lang="ts">
-    import '../firebase.ts';
+    import { loggedIn } from '../firebase.ts';
 
     let menuButtonState: boolean = false;
-    let loggedIn: boolean = false;
+    let signedIn: boolean = loggedIn();
 
     function toggleMenuButton() {
         menuButtonState = !menuButtonState;
@@ -116,13 +116,15 @@
 <div class="dropdown-content" class:dropdown-content-show={menuButtonState}>
     <a href="/" class="dropdown-link">HOME</a>
     <a href="/settings" class="dropdown-link">SETTINGS</a>
-    <a href="/login" class="dropdown-link">
-        {#if loggedIn}
-            LOGOUT
+        {#if signedIn}
+            <a href="/logout" class="dropdown-link">
+                LOGOUT
+            </a>
         {:else}
-            LOGIN
+            <a href="/login" class="dropdown-link">
+                LOGIN
+            </a>
         {/if}
-    </a>
 </div>
 
 <div class="slot">

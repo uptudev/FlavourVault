@@ -1,34 +1,14 @@
 <script lang='ts'>
-    import { signUp, signIn } from '../../firebase.ts';
+    import { signUp, signIn, loggedIn, logOut } from '../../firebase.ts';
 
     let email = '';
     let password = '';
-    let user = null;
-
-    const handleSignUp = async () => {
-        try {
-            user = await signUp(email, password);
-            // Handle successful sign-up, e.g., redirect to another page
-        } catch (error) {
-        // Handle sign-up error, e.g., display an error message
-            console.error(error.message);
-        }
-    }
-
-    const handleSignIn = async () => {
-        try {
-            user = await signIn(email, password);
-            // Handle successful sign-up, e.g., redirect to another page
-        } catch (error) {
-            // Handle sign-up error, e.g., display an error message
-            console.error(error.message);
-        }
-    }
 
 </script>
 
-{#if user}
+{#if loggedIn()}
     <p>WOAH IT WORKED</p>
+    <button type="button" on:click={logOut}>Sign Out</button>
 {:else}
     <form>
         <input type="email" bind:value={email} placeholder="Email" />
